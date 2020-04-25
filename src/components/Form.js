@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
@@ -27,10 +27,6 @@ const Form = () => {
     description: "",
     duration: "",
   });
-
-  //   useEffect(() => {
-
-  //   }, []);
 
   const { name, url, description, duration } = exercise;
 
