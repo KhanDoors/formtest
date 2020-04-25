@@ -21,27 +21,29 @@ const Form = () => {
   const classes = useStyles();
   // const theme = useTheme();
 
-  const [exercise, setExercise] = useState({
-    name: "",
-    url: "",
+  const [chart, setChart] = useState({
+    title: "",
     description: "",
-    duration: "",
+    labels: [],
+    colors: [],
+    numbers: [],
   });
 
-  const { name, url, description, duration } = exercise;
+  const { title, description, labels, colors, numbers } = chart;
 
   const onChange = (e) =>
-    setExercise({ ...exercise, [e.target.name]: e.target.value });
+    setChart({ ...chart, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(exercise);
+    console.log(chart);
 
-    setExercise({
-      name: "",
-      url: "",
+    setChart({
+      title: "",
       description: "",
-      duration: "",
+      labels,
+      colors: "",
+      numbers: "",
     });
   };
 
@@ -54,25 +56,19 @@ const Form = () => {
               style={{ fontWeight: "bold", color: "#355B8C" }}
               variant="h4"
             >
-              Add Exercise
+              Add Chart
             </Typography>
           </Grid>
 
           <form className={classes.root} onSubmit={onSubmit}>
             <TextField
               itemType="text"
-              placeholder="Name"
-              name="name"
-              value={name}
+              placeholder="Title"
+              name="title"
+              value={title}
               onChange={onChange}
             />
-            <TextField
-              itemType="url"
-              placeholder="Url"
-              name="url"
-              value={url}
-              onChange={onChange}
-            />
+
             <TextField
               itemType="text"
               placeholder="Description"
@@ -83,9 +79,23 @@ const Form = () => {
             />
             <TextField
               itemType="text"
-              placeholder="Duration"
-              name="duration"
-              value={duration}
+              placeholder="Label"
+              name="labels"
+              value={labels}
+              onChange={onChange}
+            />
+            <TextField
+              itemType="text"
+              placeholder="Color"
+              name="colors"
+              value={colors}
+              onChange={onChange}
+            />
+            <TextField
+              itemType="number"
+              placeholder="Number"
+              name="numbers"
+              value={numbers}
               onChange={onChange}
             />
             <Button variant="contained" color="primary" type="submit">
