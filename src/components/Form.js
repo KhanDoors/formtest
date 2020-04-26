@@ -26,13 +26,13 @@ const Form = () => {
     description: "",
   });
   const [variables, setVariables] = useState({
-    labels: [],
-    colors: [],
-    numbers: [],
+    label: "",
+    color: "",
+    number: 0,
   });
 
   const { title, description } = chart;
-  const { labels, colors, numbers } = variables;
+  const { label, color, number } = variables;
 
   const onChange = (e) =>
     setChart({ ...chart, [e.target.name]: e.target.value });
@@ -42,9 +42,9 @@ const Form = () => {
 
   console.log(title);
   console.log(description);
-  console.log(labels);
-  console.log(colors);
-  console.log(numbers);
+  console.log(label);
+  console.log(color);
+  console.log(number);
 
   return (
     <Fragment>
@@ -79,22 +79,22 @@ const Form = () => {
             <TextField
               itemType="text"
               placeholder="Label"
-              name="labels"
-              value={labels}
+              name="label"
+              value={label}
               onChange={onEnter}
             />
             <TextField
-              itemType="text"
+              itemType="color"
               placeholder="Color"
-              name="colors"
-              value={colors}
+              name="color"
+              value={color}
               onChange={onEnter}
             />
             <TextField
               itemType="number"
               placeholder="Number"
-              name="numbers"
-              value={numbers}
+              name="number"
+              value={number}
               onChange={onEnter}
             />
             <Button variant="contained" color="primary" type="submit">
