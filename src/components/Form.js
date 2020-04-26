@@ -24,28 +24,27 @@ const Form = () => {
   const [chart, setChart] = useState({
     title: "",
     description: "",
+  });
+  const [variables, setVariables] = useState({
     labels: [],
     colors: [],
     numbers: [],
   });
 
-  const { title, description, labels, colors, numbers } = chart;
+  const { title, description } = chart;
+  const { labels, colors, numbers } = variables;
 
   const onChange = (e) =>
     setChart({ ...chart, [e.target.name]: e.target.value });
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(chart);
+  const onEnter = (e) =>
+    setVariables({ ...variables, [e.target.name]: e.target.value });
 
-    setChart({
-      title: "",
-      description: "",
-      labels,
-      colors: "",
-      numbers: "",
-    });
-  };
+  console.log(title);
+  console.log(description);
+  console.log(labels);
+  console.log(colors);
+  console.log(numbers);
 
   return (
     <Fragment>
@@ -60,7 +59,7 @@ const Form = () => {
             </Typography>
           </Grid>
 
-          <form className={classes.root} onSubmit={onSubmit}>
+          <form className={classes.root}>
             <TextField
               itemType="text"
               placeholder="Title"
@@ -82,21 +81,21 @@ const Form = () => {
               placeholder="Label"
               name="labels"
               value={labels}
-              onChange={onChange}
+              onChange={onEnter}
             />
             <TextField
               itemType="text"
               placeholder="Color"
               name="colors"
               value={colors}
-              onChange={onChange}
+              onChange={onEnter}
             />
             <TextField
               itemType="number"
               placeholder="Number"
               name="numbers"
               value={numbers}
-              onChange={onChange}
+              onChange={onEnter}
             />
             <Button variant="contained" color="primary" type="submit">
               Submit
