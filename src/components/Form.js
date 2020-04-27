@@ -55,7 +55,7 @@ const Form = () => {
               style={{ fontWeight: "bold", color: "#355B8C" }}
               variant="h4"
             >
-              Add Chart
+              Add to Chart
             </Typography>
           </Grid>
 
